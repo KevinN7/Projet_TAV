@@ -5,8 +5,8 @@ TG_inverse = [];
 
 ZZ(find(isnan(ZZ)))=0;
 
-for i = 1:size(XX,2)
-	TG_inverse = [TG_inverse;real(ifft(ZZ(:,i)))];		% Attention : TG_inverse doit etre un vecteur (ligne ou colonne)
+for i = 1:size(XX,1)
+	TG_inverse = [TG_inverse;real(ifft(ZZ(i,:)))'];		% Attention : TG_inverse doit etre un vecteur (ligne ou colonne)
 end
 
-sound(TG_inverse,frequence_echantillonnage,nombre_bits);
+sound(TG_inverse,frequence_echantillonnage,taille_echantillon);
