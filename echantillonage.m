@@ -27,12 +27,11 @@ plot3(x,y,zPlane,'b+')
 
 % Re-echantillonage
 disp('Re-echantillonage')
-nb_pointsx = 801;
-nb_pointsy = 512;
-pasx = (max(x(:))-min(x(:)))/nb_pointsx;
-pasy = (max(y(:))-min(y(:)))/nb_pointsy;
-[XX,YY] = meshgrid(min(x(:)):pasx:max(x(:)),min(y(:)):pasy:max(y(:)));
+nb_points = 801;
+pas = (max(x(:))-min(x(:)))/nb_points;
+[XX,YY] = meshgrid(min(x(:)):pas:max(x(:)),min(y(:)):pas:max(y(:)));
 ZZ = griddata(x,y,z-zPlane,XX,YY,'natural');
+
 
 % Affichage du re-echantillonage
 disp('Affichage du re-echantillonage')
@@ -42,4 +41,3 @@ surfl(XX,YY,ZZ,[0 90])
 shading flat
 colormap gray
 axis on
-

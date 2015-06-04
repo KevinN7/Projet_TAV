@@ -31,7 +31,8 @@ nb_pointsx = 801;
 nb_pointsy = 512;
 pasx = (max(x(:))-min(x(:)))/nb_pointsx;
 pasy = (max(y(:))-min(y(:)))/nb_pointsy;
-[XX,YY] = meshgrid(min(x(:)):pasx:max(x(:)),min(y(:)):pasy:max(y(:)));
+% [XX,YY] = meshgrid(min(x(:)):pasx:max(x(:)),min(y(:)):pasy:max(y(:)));
+[XX,YY] = meshgrid(0:pasx:9,min(y(:)):pasy:max(y(:)));
 ZZ = griddata(x,y,z-zPlane,XX,YY,'natural');
 
 % Affichage du re-echantillonage

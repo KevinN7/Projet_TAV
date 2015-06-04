@@ -93,8 +93,6 @@ TG_inverse = [];
 
 %echantillons = [zeros(8000,size(XX,2));ZZrecons];
 echantillons = ZZrecons;
-echtest = echantillons - ones(size(echantillons))*(min(min(echantillons)));
-echtest = echtest.*(3/max(max(echtest)));
 for i = 1:size(echantillons,1)  
     echantillons2(i,:) = echantillons(size(echantillons,1)-i+1,:);
 end ;
@@ -105,9 +103,9 @@ figure;
 for i = 1:size(XX,2)
 	TG_inverse = [TG_inverse;real(ifft(echantillons(:,i)))];
     subplot(1,2,1)
-    plot(  fftshift(echtest(:,i))   );
+    plot(  real(echantillons(:,i))-min(echantillons(:,i))  );
     subplot(1,2,2)
-    plot(real(ifft( echtest(:,i)  )));
+    plot(real(ifft(  (  real(echantillons(:,i))-min(min(echantillons(:,:))))  )/max(max(      ));
     pause;
 end
 
