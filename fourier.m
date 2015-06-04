@@ -1,6 +1,6 @@
 close all;
 
-n_c = 0.02; %freq coupure
+n_c = 0.04; %freq coupure
 
 Znan = ZZ;
 Znan(find(isnan(ZZ)))=0;
